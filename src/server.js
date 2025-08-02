@@ -5,10 +5,11 @@ const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 dotenv.config();
-const port = 5000;
+const port = process.env.PORT || 5000;
+
 
 // Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "AIzaSyDeoVnzthyMicwDi5snFW9uqqsH-r_NB5Q");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "api key");
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 const app = express();
